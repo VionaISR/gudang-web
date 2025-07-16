@@ -1,0 +1,1 @@
+{"ok":true,"result":{"message_id":9,"from":{"id":7673743478,"is_bot":true,"first_name":"Gudang","username":"Gudang_perusahaan_bot"},"chat":{"id":1102115298,"first_name":"Vin","last_name":"Ray","type":"private"},"date":1752640693,"text":"Link akses Gudang Web: https://119c1e6b6b75.ngrok-free.app","entities":[{"offset":23,"length":35,"type":"url"}]}}

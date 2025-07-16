@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Barang</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    img {
+      max-width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stock Barang</h1>
+  <form method="get" action="/">
+    <input type="text" name="q" placeholder="Cari nama atau kode barang" value="<%= keyword %>">
+    <button type="submit">Cari</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Gambar</th>
+        <th>Nama</th>
+        <th>Brand</th>
+        <th>Daya</th>
+        <th>Frekuensi</th>
+        <th>RPM</th>
+        <th>Penggerak</th>
+        <th>Transmisi</th>
+        <th>Model</th>
+        <th>Ukuran</th>
+        <th>Keterangan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (barang.length === 0) { %>
+        <tr>
+          <td colspan="11">Tidak ada data barang.</td>
+        </tr>
+      <% } else { %>
+        <% barang.forEach(item => { %>
+          <tr>
+            <td>
+              <% if (item.gambar) { %>
+                <img src="/images/<%= item.gambar %>" alt="<%= item.nama %>">
+              <% } else { %>
+                -
+              <% } %>
+            </td>
+            <td><%= item.nama || '-' %></td>
+            <td><%= item.brand || '-' %></td>
+            <td><%= item.daya || '-' %></td>
+            <td><%= item.frekuensi || '-' %></td>
+            <td><%= item.rpm || '-' %></td>
+            <td><%= item.penggerak || '-' %></td>
+            <td><%= item.transmisi || '-' %></td>
+            <td><%= item.model || '-' %></td>
+            <td><%= item.ukuran || '-' %></td>
+            <td><%= item.keterangan || '-' %></td>
+          </tr>
+        <% }) %>
+      <% } %>
+    </tbody>
+  </table>
+
+  <br>
+  <button>Tambah Barang</button>
+  <button>Keluar Barang</button>
+  <button>Log Out</button>
+</body>
+</html>
